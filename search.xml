@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>第一次C++程序作业</title>
+      <link href="/2018/11/14/FirstHW/"/>
+      <url>/2018/11/14/FirstHW/</url>
+      
+        <content type="html"><![CDATA[<h3 id="身份证验证"><a href="#身份证验证" class="headerlink" title="身份证验证"></a>身份证验证</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/idCheck.cpp" target="_blank" rel="noopener">idCheck.cpp</a></p><h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/hexConv.cpp" target="_blank" rel="noopener">hexConv.cpp</a></p><h3 id="字符统计"><a href="#字符统计" class="headerlink" title="字符统计"></a>字符统计</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/countText.cpp" target="_blank" rel="noopener">hexConv.cpp</a></p><h3 id="藏数游戏"><a href="#藏数游戏" class="headerlink" title="藏数游戏"></a>藏数游戏</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/hideNum.cpp" target="_blank" rel="noopener">hideNum.cpp</a></p><p>后面的两个程序有点水，不太严谨。如有改进的地方，可以在我的<a href="https://github.com/TonyGuy/HomeWork" target="_blank" rel="noopener">GitHub</a>上留言</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> HomeWork </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>安装Hexo和部署到Github</title>
       <link href="/2018/11/14/HexoInstall/"/>
       <url>/2018/11/14/HexoInstall/</url>
@@ -16,23 +33,6 @@
             <tag> 教程 </tag>
             
             <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>第一次C++程序作业</title>
-      <link href="/2018/11/14/FirstHW/"/>
-      <url>/2018/11/14/FirstHW/</url>
-      
-        <content type="html"><![CDATA[<h3 id="身份证验证"><a href="#身份证验证" class="headerlink" title="身份证验证"></a>身份证验证</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/idCheck.cpp" target="_blank" rel="noopener">idCheck.cpp</a></p><h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/hexConv.cpp" target="_blank" rel="noopener">hexConv.cpp</a></p><h3 id="字符统计"><a href="#字符统计" class="headerlink" title="字符统计"></a>字符统计</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/countText.cpp" target="_blank" rel="noopener">hexConv.cpp</a></p><h3 id="藏数游戏"><a href="#藏数游戏" class="headerlink" title="藏数游戏"></a>藏数游戏</h3><p><a href="https://github.com/TonyGuy/HomeWork/blob/master/src/hideNum.cpp" target="_blank" rel="noopener">hideNum.cpp</a></p><p>后面的两个程序有点水，不太严谨。如有改进的地方，可以在我的<a href="https://github.com/TonyGuy/HomeWork" target="_blank" rel="noopener">GitHub</a>上留言</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> HomeWork </tag>
             
         </tags>
       

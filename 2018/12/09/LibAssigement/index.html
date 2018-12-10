@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Hexo | Tony Blog</title>
+  <title>实验室任务 | Tony Blog</title>
   <meta name="author" content="Tony">
   
   <meta name="description" content="code">
@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="实验室任务">
   <meta property="og:site_name" content="Tony Blog">
 
   
@@ -109,117 +109,120 @@ var _hmt = _hmt || [];
   	<div class="content">
     	 
 
-<!-- title -->
-<div class="page-header">
-  <h1 class="archive-title-tag"><i class="fa fa-archive"></i> Hexo</h1>
-</div>
 
-<div class="row page">
-  <!-- cols -->
-  
-  <div class="col-md-9">
 	
-
-	  <div id="top_search"></div>
-
-	  <div class="archive">
-		
-		
-		
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2018">2018<b class="caret"></b></h4>
-			<ul id="2018" class="collapse in">
-			
-		
-		<li class="listing-item">
-		<span class="date_class"> 2018-10-11 </span> &raquo;
-		
-		   <span class="title"><a href="/2018/10/11/HexoInstall/">安装Hexo和部署到Github</a></span>
-		
-		</li>			
-		
-		</ul>
+		<div class="page-header">
+			<h1> 实验室任务</h1>
 		</div>
-
-</div> <!-- col-md-9/col-md-12 -->
-
-
-<div class="col-md-3">
-	<div id="sidebar">
 	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control">
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
 
 
-		
-			
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
-		
-			<li><a href="/tags/Hexo/">Hexo<span>1</span></a></li>
-		
-			<li><a href="/tags/HomeWork/">HomeWork<span>2</span></a></li>
-		
-		 
-		</ul>
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>任务要求: 抓取学校教务系统的个人信息和课表，做成网站访问。<br>工具: <strong>python</strong>（request，beautifulsoap，django），<strong>css</strong>，<strong>js</strong>，<strong>jquery</strong>，<strong>html</strong>，<strong>bootstrap</strong>(做UI）<br>具体过程: 用python的request库获取学生信息，再beautifulsoap解析，提取出学生信息，做成一个<strong>StudentInfo</strong>类。接下来用django搭建动态网站，用StudentInfo类代替数据库，在网页中用ajax获取数据，js加载布局。</p>
+<p>效果如下：<br><img src="mainpage.png" alt="首页"><br><img src="infopage.jpg" alt="学生信息"></p>
+<hr>
+<p>唉，说一下做的过程中遇到的坑。</p>
+<ul>
+<li><h2 id="登录不上"><a href="#登录不上" class="headerlink" title="登录不上"></a>登录不上</h2><p>刚开始我把数据直接提交到登录url，登录不上，以为教务系统有识别爬虫的功能，于是把浏览器的请求头都添加上，但还是不行。看浏览器抓包，登录首页时，教务系统给了一个cookie，后来登录就要提交这个cookie。所以只要登录的时候，用request的session的请求一下首页，拿一下cookie就搞定了。</p>
+</li>
+<li><h2 id="解析信息"><a href="#解析信息" class="headerlink" title="解析信息"></a>解析信息</h2><p>python做信息字典的时候，忘了键值相同，会覆盖其值。。这个问题纳闷了几天。</p>
+</li>
+<li><h2 id="偷官网首页"><a href="#偷官网首页" class="headerlink" title="偷官网首页"></a>偷官网首页</h2><p>唉，偷首页还是不要偷上js，弄出一个ui，搞css和图片就好了。</p>
+</li>
+<li><h2 id="用mysql还是缓存？"><a href="#用mysql还是缓存？" class="headerlink" title="用mysql还是缓存？"></a>用mysql还是缓存？</h2><p>刚开始用mysql保存学生信息，最后决定用缓存保存学生信息。用mysql做代理网站太麻烦了，网站更新速度快，而且信息多，加上这些信息并不用保存太久。而一个StudentInfo类就保存全部，岂不美滋滋。</p>
+</li>
+</ul>
+<hr>
+<p>大学的第一个项目，用时大概一个月，由python学起，学到django的使用，后来发现即学即用效率是最高的，beatifulsoap，request，css，html，js，jquery都没有经过系统的学习，即学即用。<br>写这篇博客纪念一下，写完了，可以回去补高数了。</p>
+<p>项目:<a href="https://github.com/TonyGuy/CrawlProject/" target="_blank" rel="noopener">盗版教务系统</a></p>
+	  
 	</div>
 
+	<div>
+  	<center>
+	<div class="pagination">
 
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
     
-      <li>
-        <a href="/2018/12/09/LibAssigement/"><i class="fa fa-file-o"></i>实验室任务</a>
-      </li>
     
-      <li>
-        <a href="/2018/11/14/FirstHW/"><i class="fa fa-file-o"></i>第一次C++程序作业</a>
-      </li>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
     
-      <li>
-        <a href="/2018/10/11/HexoInstall/"><i class="fa fa-file-o"></i>安装Hexo和部署到Github</a>
-      </li>
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-  </ul>
+    <a href="/2018/11/14/FirstHW/" type="button" class="btn btn-default ">Next<i class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
 </div>
 
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
 		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/TonyGuy" title="My Github account." target="_blank" ]);"="">Github</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="http://github.com/TonyGuy/HomeWork" title="HomeWork" target="_blank" ]);"="">HomeWork</a></li>
-	
-		<li><i class="fa fa-heart"></i><a href="http://love.tonyguy.online" title="LOVE" target="_blank" ]);"="">.</a></li>
-	
-	</ul>
-</div>
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
 
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-12-09 
+	</div>
+	
 
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/HomeWork/">HomeWork<span>2</span></a></li>
+
+    </ul>
+	</div>
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
 
 
 
-</div>
 	</div>
   </div>
   <div class="container-narrow">

@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>typedef的小问题 | Tony Blog</title>
+  <title>问题：用typedef定义模板别名 | Tony Blog</title>
   <meta name="author" content="Tony">
   
   <meta name="description" content="code">
@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="typedef的小问题">
+  <meta property="og:title" content="问题：用typedef定义模板别名">
   <meta property="og:site_name" content="Tony Blog">
 
   
@@ -112,7 +112,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header">
-			<h1> typedef的小问题</h1>
+			<h1> 问题：用typedef定义模板别名</h1>
 		</div>
 	
 
@@ -130,11 +130,12 @@ var _hmt = _hmt || [];
 	  		
 
 	  <p>在上机课做LinkList的时候，用到模板结构体，就想着用typedef来定义一个结构体的指针:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">typedef</span> <span class="title">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	DT data;</span><br><span class="line">	Node&lt;DT&gt;* next;</span><br><span class="line">&#125;*PNode&lt;DT&gt;;</span><br></pre></td></tr></table></figure></p>
-<p>竟然编译不通过。。。。。</p>
+<p>竟然编译不通过。。。</p>
 <p>最后改了下:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	DT data;</span><br><span class="line">	Node&lt;DT&gt;* next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">typedef</span> <span class="title">Node</span>&lt;DT&gt; *<span class="title">PNode</span>;</span></span><br><span class="line"></span><br><span class="line">PNode&lt;<span class="keyword">int</span>&gt; pnode;</span><br></pre></td></tr></table></figure></p>
-<p>可以编译通过？!</p>
-<p>但回到宿舍,用GCC编译失败，随后搜索这个问题，解决办法使用using代替typedef:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	DT data;</span><br><span class="line">	Node&lt;DT&gt;* next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">using</span> <span class="title">PNode</span> =<span class="title">Node</span>&lt;DT&gt;*;</span></span><br><span class="line"></span><br><span class="line">PNode&lt;<span class="keyword">int</span>&gt; pnode;</span><br></pre></td></tr></table></figure></p>
-<p>其实导致上述错误是因为C++标准不同。<br>上机课用的编译器是上古VC6.0，用的是古老的C++98标准，GCC编译器用的是C++11标准。。<br>至于为什么typedef的用法被淘汰了，可以参考以下链接</p>
+<p>O了？!</p>
+<p>但回到宿舍,用GCC编译失败，，，最后找到解决办法使用using代替typedef:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	DT data;</span><br><span class="line">	Node&lt;DT&gt;* next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DT</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">using</span> <span class="title">PNode</span> =<span class="title">Node</span>&lt;DT&gt;*;</span></span><br><span class="line"></span><br><span class="line">PNode&lt;<span class="keyword">int</span>&gt; pnode;</span><br></pre></td></tr></table></figure></p>
+<p>其实导致上述错误是因为C++标准不同,上机课用的编译器是上古VC6.0，用的是古老的C++98标准，GCC编译器用的是C++11标准,C++11淘汰了typedef的用法。</p>
+<p>至于为什么typedef的用法被淘汰了，可以参考以下链接:</p>
 <p><a href="https://zhuanlan.zhihu.com/p/21264013" target="_blank" rel="noopener">Effective Modern C++ Note</a></p>
 	  
 	</div>
@@ -191,7 +192,7 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/C/">C++<span>2</span></a></li> <li><a href="/tags/tips/">tips<span>1</span></a></li>
+  <li><a href="/tags/C/">C++<span>3</span></a></li> <li><a href="/tags/tips/">tips<span>2</span></a></li>
 
     </ul>
 	</div>
